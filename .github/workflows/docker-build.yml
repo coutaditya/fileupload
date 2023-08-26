@@ -13,5 +13,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Login to Docker Hub
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+        
       - name: Build Docker image
-        run: docker build -t file-upload-app .
+        run: docker build -t coutaditya/fileupload .
+        
+      - name: Push Docker image
+        run: docker push coutaditya/fileupload
