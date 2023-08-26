@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Upload and API Response</title>
+</head>
+<body>
+    <h1>File Upload and API Response</h1>
+    
+    <form id="upload-form" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".txt, .pdf, .docx" required>
+        <button type="submit">Upload & Get Info</button>
+    </form>
+    
+    <div id="response" style="display: none;">
+        <h2>File Information</h2>
+        <p><strong>Filename:</strong> <span id="filename"></span></p>
+        <p><strong>Size:</strong> <span id="size"></span> bytes</p>
+        <p><strong>Path:</strong> <span id="path"></span></p>
+    </div>
+    
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const response = await fetch('/upload', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                document.getElementById('filename').textContent = data.file_info.filename;
+                document.getElementById('size').textContent = data.file_info.size;
+                document.getElementById('path').textContent = data.file_info.path;
+                document.getElementById('response').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
