@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fileupload-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fileupload
+  template:
+    metadata:
+      labels:
+        app: fileupload
+    spec:
+      containers:
+        - name: my-app-container
+          image: coutaditya/fileupload:latest
+          ports:
+            - containerPort: 80
