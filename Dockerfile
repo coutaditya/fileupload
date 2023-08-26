@@ -1,11 +1,11 @@
-FROM python 3.11
+FROM python:3.11.4
 
-WORKDIR /app
+WORKDIR /RapidFort
 
-COPY ./app
+COPY . /RapidFort
 
 RUN pip install -r requirements.txt
 
 EXPOSE 5000
 
-CMD ["python", "fileuload.py"]
+CMD ["python", "fileupload.py"]
