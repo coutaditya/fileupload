@@ -89,7 +89,7 @@ Content-Type: application/json
     1. 201: Created
     2. 202: Accepted
     3. 204: No content
-    3. 240: Bad Request
+    3. 400: Bad Request
 
 
 ### Project Live Link: http://34.131.206.154:5000/
