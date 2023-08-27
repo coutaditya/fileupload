@@ -17,7 +17,7 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
         
       - name: Build Docker image
-        run: docker build -t coutaditya/fileupload .
+        run: docker build -t coutaditya/fileupload:latest .
         
       - name: Push Docker image
-        run: docker push coutaditya/fileupload
+        run: docker push coutaditya/fileupload:latest
