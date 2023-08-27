@@ -84,13 +84,13 @@ Content-Type: application/json
   "email": "grand@nitj.com",
   "password": "aditya123"
 }
-
+```
 6. For a POST request, common status codes are:
     1. 201: Created
     2. 202: Accepted
     3. 204: No content
     3. 240: Bad Request
 
-```
+
 ### Project Live Link: http://34.131.206.154:5000/
 
